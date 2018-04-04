@@ -1,18 +1,15 @@
 ---
 # 
 # Install Couchbase cluster from a single command
-#
+# this playbook will run only on Ubuntu 14.04 LTS not for 16.04
 
 - name: Couchbase Installation
   hosts: all
   user: root
    
   tasks:
-
-  #- name: download Couchbase package
-  #  get_url: url=http://packages.couchbase.com/releases/2.1.0/couchbase-server-enterprise_x86_64_2.1.0.deb dest=/root/
   - name: Install updates on all machines
-    shell: sudo apt-get updates -y
+    shell: sudo apt-get update
  
   - name: download libssl0.9.8 package
     get_url: url=http://security.ubuntu.com/ubuntu/pool/universe/o/openssl098/libssl0.9.8_0.9.8o-7ubuntu3.2.14.04.1_amd64.deb dest=/root/
@@ -20,8 +17,14 @@
   - name: Install libssl0.9.8 on all machines
     shell: dpkg -i /root/libssl0.9.8_0.9.8o-7ubuntu3.2.14.04.1_amd64.deb
 
-  - name: Install Couchbase on all machines
-    shell: sudo apt-get install couchbase-server -y
+  - name: download Couchbase package
+    get_url: url=http://packages.couchbase.com/releases/2.1.0/couchbase-server-enterprise_x86_64_2.1.0.deb dest=/root/
+  
+  - name: Install couchbase on all machines
+    shell: dpkg -i /root/couchbase-server-enterprise_x86_64_2.1.0.deb
+
+  #- name: Install Couchbase on all machines
+  #  shell: sudo apt-get install couchbase-server -y
      
 - name: Initialize the cluster and add the nodes to the cluster
   hosts: couchbase-main

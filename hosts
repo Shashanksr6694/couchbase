@@ -11,8 +11,8 @@ couchbase-main
 couchbase-nodes
 
 [couchbase-main]
-ec2-54-166-179-221.compute-1.amazonaws.com
+ec2-54-167-159-3.compute-1.amazonaws.com
 
 [couchbase-nodes]
-ec2-34-205-77-189.compute-1.amazonaws.com
-ec2-54-161-75-151.compute-1.amazonaws.com
+ec2-35-171-157-175.compute-1.amazonaws.com
+ec2-174-129-178-113.compute-1.amazonaws.com
