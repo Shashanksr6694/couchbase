@@ -11,7 +11,9 @@
 
   #- name: download Couchbase package
   #  get_url: url=http://packages.couchbase.com/releases/2.1.0/couchbase-server-enterprise_x86_64_2.1.0.deb dest=/root/
-  
+  - name: Install updates on all machines
+    shell: sudo apt-get updates -y
+ 
   - name: download libssl0.9.8 package
     get_url: url=http://security.ubuntu.com/ubuntu/pool/universe/o/openssl098/libssl0.9.8_0.9.8o-7ubuntu3.2.14.04.1_amd64.deb dest=/root/
 
